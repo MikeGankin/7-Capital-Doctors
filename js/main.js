@@ -17661,11 +17661,11 @@ const pagination = new swiper__WEBPACK_IMPORTED_MODULE_1__["default"]('.paginati
 });
 product.controller.control = pagination;
 gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
-// ScrollSmoother.create({
-// 	wrapper: '.page__wrapper',
-// 	content: '.page__content',
-//   smooth: 0.5
-// })
+ScrollSmoother.create({
+  wrapper: '.page__wrapper',
+  content: '.page__content',
+  smooth: 0.5
+});
 const tl = gsap.timeline();
 tl.fromTo('.ticker__item', {
   translateZ: 0
