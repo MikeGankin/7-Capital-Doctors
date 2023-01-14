@@ -17657,15 +17657,16 @@ const pagination = new swiper__WEBPACK_IMPORTED_MODULE_1__["default"]('.paginati
   direction: "vertical",
   loop: true,
   slidesPerView: 1,
-  grabCursor: false
+  grabCursor: false,
+  touchRatio: 0
 });
 product.controller.control = pagination;
 gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
-ScrollSmoother.create({
-  wrapper: '.page__wrapper',
-  content: '.page__content',
-  smooth: 0.5
-});
+// ScrollSmoother.create({
+// 	wrapper: '.page__wrapper',
+// 	content: '.page__content',
+//   smooth: 0.5
+// })
 const tl = gsap.timeline();
 tl.fromTo('.ticker__item', {
   translateZ: 0

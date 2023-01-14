@@ -1084,10 +1084,7 @@ svg {
 }
 @media (max-width: 475px) {
   .header__btn {
-    -ms-grid-row: 2;
-    -ms-grid-row-span: 1;
-    grid-row: 2/3;
-    margin-top: 2rem;
+    display: none;
   }
 }
 
@@ -1135,13 +1132,13 @@ svg {
 
 .menu {
   position: fixed;
-  top: 75px;
+  top: 72px;
   left: 0;
   background-color: var(--grey);
   z-index: 10;
   width: 100%;
-  height: calc(100vh - 75px);
-  padding: 40px 0;
+  height: -webkit-fill-available;
+  padding: 1rem 0;
   -webkit-transform: translateX(100%);
   -ms-transform: translateX(100%);
   transform: translateX(100%);
@@ -1481,7 +1478,7 @@ svg {
 }
 
 .ticker__item {
-  font-size: calc(50px + 20 * ((100vw - 320px) / 1600));
+  font-size: calc(40px + 30 * ((100vw - 320px) / 1600));
   font-weight: 400;
   color: var(--green);
   white-space: nowrap;
@@ -1810,8 +1807,8 @@ svg {
   -webkit-box-pack: space-evenly;
   -ms-flex-pack: space-evenly;
   justify-content: space-evenly;
-  padding: 7px 15px;
-  font-size: calc(14px + 6 * ((100vw - 320px) / 1600));
+  padding: 15px;
+  font-size: calc(16px + 4 * ((100vw - 320px) / 1600));
   -webkit-transition: background-color var(--transition);
   -o-transition: background-color var(--transition);
   transition: background-color var(--transition);
@@ -1833,6 +1830,11 @@ svg {
   -o-transition: transform var(--transition);
   transition: transform var(--transition);
   transition: transform var(--transition), -webkit-transform var(--transition);
+}
+@media (max-width: 475px) {
+  .feedback-form__btn svg {
+    display: none;
+  }
 }
 
 .feedback-form__btn:hover {
@@ -2307,6 +2309,7 @@ svg {
   grid-template-rows: auto 54px;
   padding-top: 4rem;
   padding-bottom: 4rem;
+  min-height: 400px;
 }
 
 .callToAction__headline {
@@ -2328,10 +2331,10 @@ svg {
   -webkit-box-pack: center;
   -ms-flex-pack: center;
   justify-content: center;
-  padding: 7px 15px;
   background-color: var(--white);
   color: var(--green);
   margin: 0 auto;
+  padding: 15px;
   -ms-grid-column: 2;
   -ms-grid-column-span: 2;
   grid-column: 2/4;
