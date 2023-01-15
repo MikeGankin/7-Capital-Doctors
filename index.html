@@ -17,7 +17,7 @@
   <link rel="preload" href="fonts/Golos-bold.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="fonts/Golos-regular.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="css/main.css" type="text/css">
-  <script defer src="js/main.js"></script>
+  <script async src="js/main.js"></script>
 </head>
 
 <div class='page__wrapper'>
@@ -105,7 +105,10 @@
     <h1 class="visually-hidden">Ваше здоровье — наша забота</h1>
     <div class="hero__content">
       <div class="hero__manifest manifest">
-        <img src="img/hero.svg" width="1440" height="300" alt="Ваше здоровье - наша забота">
+        <picture>
+          <source srcset="img/hero-mobile.svg" media="(max-width: 768px)"/>
+          <img src="img/hero.svg" width="1440" height="300" alt="Ваше здоровье - наша забота">
+        </picture>
         <button class="btn-reset site-btn manifest__btn">
           консультация
           <svg>
@@ -191,7 +194,7 @@
 
         <section class="section trust">
   <div class="container">
-    <div class="trust__content">
+    <div class="trust__content lazy-load">
       <h2 class="trust__headline">Почему стоит доверять нам?</h2>
       <p class="trust__text">
         Каждый пациент — не рядовой клиент, а дорогой гость.
@@ -233,12 +236,12 @@
           на первичную консультацию!
         </p>
       </div>
-        <form class="feedback__form feedback-form" action="#" method="post">
+        <form class="feedback__form feedback-form" id="form" action="#" method="post">
           <label class="feedback-form__label">
-            <input class="input-reset feedback-form__input" type="text" placeholder="Имя">
+            <input class="input-reset feedback-form__input feedback-form__input--name" type="text" placeholder="Имя">
           </label>
           <label class="feedback-form__label">
-            <input class="input-reset feedback-form__input" type="tel" placeholder="Телефон">
+            <input class="input-reset feedback-form__input feedback-form__input--tel" type="tel" placeholder="Телефон">
           </label>
           <label class="feedback-form__label feedback-form__label--confidential">
             <input class="visually-hidden feedback-form__input--checkbox" type="checkbox">
@@ -347,38 +350,42 @@
       <div class="swiper productSlider">
         <div class="swiper-wrapper">
           <div class="swiper-slide product-slide">
+            <div class="swiper-lazy-preloader"></div>
             <picture>
-              <source type="image/webp" srcset="img/uzi@1x.webp 1x, img/uzi@2x.webp 2x">
-              <img class="picture" width="1080" height="400"
-                  src="img/uzi@1x.jpeg"
-                  srcset="img/uzi@2x.jpeg 2x"
+              <source type="image/webp" data-srcset="img/uzi@1x.webp 1x, img/uzi@2x.webp 2x">
+              <img class="swiper-lazy" width="1080" height="400"
+                  data-src="img/uzi@1x.jpeg"
+                  data-srcset="img/uzi@2x.jpeg 2x"
                   alt="Кабинет УЗИ">
             </picture>
           </div>
           <div class="swiper-slide product-slide">
+            <div class="swiper-lazy-preloader"></div>
             <picture>
-              <source type="image/webp" srcset="img/massage@1x.webp 1x, img/massage@2x.webp 2x">
-              <img class="picture" width="1080" height="400"
-                  src="img/massage@1x.jpeg"
-                  srcset="img/massage@2x.jpeg 2x"
+              <source type="image/webp" data-srcset="img/massage@1x.webp 1x, img/massage@2x.webp 2x">
+              <img class="swiper-lazy" width="1080" height="400"
+                  data-src="img/massage@1x.jpeg"
+                  data-srcset="img/massage@2x.jpeg 2x"
                   alt="Кабинет массажиста">
             </picture>
           </div>
           <div class="swiper-slide product-slide">
+            <div class="swiper-lazy-preloader"></div>
             <picture>
-              <source type="image/webp" srcset="img/terapevt@1x.webp 1x, img/terapevt@2x.webp 2x">
-              <img class="picture" width="1080" height="400"
-                  src="img/terapevt@1x.jpeg"
-                  srcset="img/terapevt@2x.jpeg 2x"
+              <source type="image/webp" data-srcset="img/terapevt@1x.webp 1x, img/terapevt@2x.webp 2x">
+              <img class="swiper-lazy" width="1080" height="400"
+                  data-src="img/terapevt@1x.jpeg"
+                  data-srcset="img/terapevt@2x.jpeg 2x"
                   alt="Кабинет терапевта">
             </picture>
           </div>
           <div class="swiper-slide product-slide">
+            <div class="swiper-lazy-preloader"></div>
             <picture>
-              <source type="image/webp" srcset="img/stomatolog@1x.webp 1x, img/stomatolog@2x.webp 2x">
-              <img class="picture" width="1080" height="400"
-                  src="img/stomatolog@1x.jpeg"
-                  srcset="img/stomatolog@2x.jpeg 2x"
+              <source type="image/webp" data-srcset="img/stomatolog@1x.webp 1x, img/stomatolog@2x.webp 2x">
+              <img class="swiper-lazy" width="1080" height="400"
+                  data-src="img/stomatolog@1x.jpeg"
+                  data-srcset="img/stomatolog@2x.jpeg 2x"
                   alt="Кабинет стоматолога">
             </picture>
           </div>
@@ -408,16 +415,24 @@
     <div class="license__body">
       <ul class="list-reset license__list license-list">
         <li class="license-list__item">
-          <img src="img/1.jpg" alt="">
+          <a class="license-list__link" href="http://" target="_blank" rel="noopener noreferrer">
+            <img src="img/1.jpeg" alt="Лицензия">
+          </a>
         </li>
         <li class="license-list__item">
-          <img src="img/2.jpg" alt="">
+          <a class="license-list__link" href="http://" target="_blank" rel="noopener noreferrer">
+            <img src="img/2.jpeg" alt="Лицензия">
+          </a>
         </li>
         <li class="license-list__item">
-          <img src="img/3.jpg" alt="">
+          <a class="license-list__link" href="http://" target="_blank" rel="noopener noreferrer">
+            <img src="img/3.jpeg" alt="Лицензия">
+          </a>
         </li>
         <li class="license-list__item">
-          <img src="img/4.jpg" alt="">
+          <a class="license-list__link" href="http://" target="_blank" rel="noopener noreferrer">
+            <img src="img/4.jpeg" alt="Лицензия">
+          </a>
         </li>
       </ul>
     </div>
@@ -436,7 +451,9 @@
   </div>
 </section>
 
-        <footer class="footer" role="contentinfo">
+      </main>
+
+      <footer class="footer" role="contentinfo">
   <div class="container footer__content">
     <ul class="list-reset footer__list footer-info">
       <li class="footer-info__item footer-info__item--contacts">
@@ -471,9 +488,21 @@
   </div>
 </footer>
 
-      </main>
+      <button class="scroll-up" type="button">
+        <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path
+            d="M19.25 30C19.25 30.4142 19.5858 30.75 20 30.75C20.4142 30.75 20.75 30.4142 20.75 30L19.25 30ZM20.5303 9.46967C20.2374 9.17678 19.7626 9.17678 19.4697 9.46967L14.6967 14.2426C14.4038 14.5355 14.4038 15.0104 14.6967 15.3033C14.9896 15.5962 15.4645 15.5962 15.7574 15.3033L20 11.0607L24.2426 15.3033C24.5355 15.5962 25.0104 15.5962 25.3033 15.3033C25.5962 15.0104 25.5962 14.5355 25.3033 14.2426L20.5303 9.46967ZM20.75 30L20.75 10L19.25 10L19.25 30L20.75 30Z"
+            fill="#6E6E6E" />
+          <rect x="0.5" y="0.5" width="39" height="39" rx="19.5" stroke="#6E6E6E" />
+        </svg>
+      </button>
 
-      <footer></footer>
+      <div class="modal">
+  <div class="modal__container" data-target="first">
+      <p>Благодарим, что выбрали нас! Мы свяжемся с вами через 10 минут!</p>
+      <button class="btn-reset site-btn modal-close">Закрыть</button>
+  </div>
+</div>
 
     </body>
   </div>
