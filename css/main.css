@@ -1234,14 +1234,13 @@ input:focus:-ms-input-placeholder {
 
 .menu {
   position: fixed;
-  top: 72px;
+  top: 0;
   left: 0;
   background-color: var(--grey);
-  z-index: 10;
+  z-index: -1;
   width: 100%;
-  height: calc(100vh - 72px);
-  height: var(--windowInnerHeight, calc(100vh - 72px));
-  padding: 1rem 0;
+  height: 100vh;
+  height: var(--windowInnerHeight, 100vh);
   -webkit-transform: translateX(100%);
   -ms-transform: translateX(100%);
   transform: translateX(100%);
@@ -1255,7 +1254,12 @@ input:focus:-ms-input-placeholder {
   -webkit-box-direction: normal;
   -ms-flex-direction: column;
   flex-direction: column;
-  height: 100%;
+  height: calc(100% - 72px);
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  -webkit-transform: translateY(72px);
+  -ms-transform: translateY(72px);
+  transform: translateY(72px);
 }
 
 .menu__list--patient {
@@ -1959,11 +1963,11 @@ input:focus:-ms-input-placeholder {
   background-color: var(--dark-green);
 }
 
-.custom-checkbox {
-  display: block;
-  width: 25px;
-  height: 25px;
+.feedback-form__input--checkbox {
+  width: 24px;
+  height: 24px;
   background-color: var(--grey);
+  border: 1px solid var(--grey);
   border-radius: 5px;
   -ms-flex-negative: 0;
   flex-shrink: 0;
@@ -1978,7 +1982,7 @@ input:focus:-ms-input-placeholder {
   color: var(--black);
 }
 
-.feedback-form__input--checkbox:checked ~ .custom-checkbox {
+.feedback-form__input--checkbox:checked {
   background-color: var(--green);
   background-image: url("../img/check-mark.svg");
 }
@@ -1990,7 +1994,7 @@ input:focus:-ms-input-placeholder {
 }
 
 .is-input-invalid {
-  border: 1px solid rgb(184, 17, 17);
+  border-color: rgb(184, 17, 17);
 }
 
 .is-input-valid {

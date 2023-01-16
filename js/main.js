@@ -22886,7 +22886,8 @@ const formValidator = () => {
     },
     errorMessage: 'Введите корректный телефон!'
   }]).addField('.feedback-form__input--checkbox', [{
-    rule: 'required'
+    rule: 'required',
+    errorMessage: 'Необходимо согласиться с Политикой конфиденциальности'
   }]).onSuccess(e => {
     e.preventDefault();
     e.target.reset();
